@@ -1,0 +1,28 @@
+
+READ AND WRITE list_todo WITH STRING
+READ AND WRITE item with string
+
+set list_todo = []
+
+// Cek jika list_todo kosong
+IF list_todo LENGTH equal 0 THEN
+    // Tambahkan item todo ke list dan tampilkan pesan
+    WHILE TRUE DO
+        // Input item todo dari pengguna
+        item = INPUT("Masukkan item todo (atau ketik 'selesai' untuk keluar): ")
+
+        // Tambahkan item todo ke list
+        ADD item TO list_todo
+
+        // Exit atau menghentikan loop jika pengguna mengetik 'selesai'
+        IF item.lower() == "selesai" THEN
+            BREAK
+        END IF
+    END WHILE
+    
+ELSE
+    // Tampilkan semua item todo yang telah ditambahkan
+    FOR EACH item IN list_todo DO
+        PRINT "- " + item
+    END FOR
+ENDIF
